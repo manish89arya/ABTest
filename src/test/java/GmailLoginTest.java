@@ -2,16 +2,16 @@ import base.TestBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.GmailPageObjects;
+import pages.GmailLogin;
 
 public class GmailLoginTest extends TestBase {
 
-    GmailPageObjects gmailPageObjects;
+    GmailLogin gmailLogin;
     @BeforeMethod
     public void setUp()
     {
         browserSetUp();
-        gmailPageObjects = new GmailPageObjects();
+        gmailLogin = new GmailLogin();
     }
 
 
@@ -19,10 +19,10 @@ public class GmailLoginTest extends TestBase {
     @Test
     public void clickEmail() {
         driver.get("https://accounts.google.com/");
-        gmailPageObjects.enterEmail("manish89aryatest001@gmail.com");
-        gmailPageObjects.clickOnNext();
-        gmailPageObjects.enterPassword("Test@1234");//Replace with your password
-        gmailPageObjects.clickEmail("<EMAIL SUBJECT YOU WANT TO CLICK>");//Replace with email subject you want to click
+        gmailLogin.enterEmail("manish89aryatest001@gmail.com");
+        gmailLogin.clickOnNext();
+        gmailLogin.enterPassword("Test@1234");//Replace with your password
+        gmailLogin.clickEmail("<EMAIL SUBJECT YOU WANT TO CLICK>");//Replace with email subject you want to click
 
     }
 

@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import static utils.TestUtils.waitForVisible;
 
 public class GmailLogin extends TestBase {
@@ -16,6 +18,12 @@ public class GmailLogin extends TestBase {
 //    @FindBy(id="identifierId")
     @FindBy(how= How.XPATH, xpath="//input[@id='identifierId']")
     WebElement txtFldEmail;
+
+    @FindBy(xpath="//div[@class=\"BHzsHc\" and text()='Use another account']")
+    WebElement linkUseAnotherAccount;
+
+    @FindBy(xpath="//div[@class='VfPpkd-RLmnJb']")
+    WebElement btnNext;
 
     @FindBy(how=How.XPATH, xpath="//*[@id='password']/div[1]/div/div[1]/input")
     WebElement txtFldPassword;
@@ -26,8 +34,6 @@ public class GmailLogin extends TestBase {
     @FindBy(how=How.XPATH, xpath="//span[@class='gb_bb gbii']")
     WebElement profileLogo;
 
-    @FindBy(id="identifierId")
-    private WebElement btnNext;
 
     public GmailLogin()
     {
@@ -36,16 +42,20 @@ public class GmailLogin extends TestBase {
     }
 
     public void enterEmail(String emailID)
-    {
-//        waitForVisible(driver, txtFldEmail);
+        {
+            try{
         txtFldEmail.sendKeys(emailID);
-//        Actions actions=new Actions(driver);
-//        actions.moveToElement(txtFldEmail);
-//        actions.click();
-//        actions.sendKeys(emailID + Keys.ENTER);
-//        actions.build().perform();
-//        System.out.println("Email entered");
-    }
+        }catch (NoSuchElementException e)
+            {
+                clickOnUserAnotherAccount();
+                txtFldEmail.sendKeys(emailID);
+            }
+        }
+
+        public void clickOnUserAnotherAccount()
+        {
+            linkUseAnotherAccount.click();
+        }
 
     public void clickOnNext() {
         btnNext.click();
