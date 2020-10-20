@@ -21,7 +21,7 @@ public class GmailLoginTest extends TestBase {
         driver.get("https://accounts.google.com/");
         gmailLogin.enterEmail("manish89aryatest001@gmail.com");
         gmailLogin.clickOnNext();
-        gmailLogin.enterPassword("Test@1234");//Replace with your password
+        gmailLogin.enterPassword("Test@1234");
         gmailLogin.clickEmail("<EMAIL SUBJECT YOU WANT TO CLICK>");//Replace with email subject you want to click
 
     }
