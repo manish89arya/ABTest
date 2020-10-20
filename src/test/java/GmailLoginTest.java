@@ -3,6 +3,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.GmailLogin;
+import utils.TestUtils;
 
 public class GmailLoginTest extends TestBase {
 
@@ -18,6 +19,7 @@ public class GmailLoginTest extends TestBase {
 
     @Test
     public void clickEmail() {
+        TestUtils.getChromePrefs();
         driver.get("https://accounts.google.com/");
         gmailLogin.enterEmail("manish89aryatest001@gmail.com");
         gmailLogin.clickOnNext();
