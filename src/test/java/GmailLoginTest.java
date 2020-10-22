@@ -1,3 +1,4 @@
+import GmailAPiLib.GMail;
 import base.TestBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -19,12 +20,13 @@ public class GmailLoginTest extends TestBase {
 
     @Test
     public void clickEmail() {
-        TestUtils.getChromePrefs();
-        driver.get("https://accounts.google.com/");
-        gmailLogin.enterEmail("manish89aryatest001@gmail.com");
-        gmailLogin.clickOnNext();
-        gmailLogin.enterPassword("Test@1234");
-        gmailLogin.clickEmail("<EMAIL SUBJECT YOU WANT TO CLICK>");//Replace with email subject you want to click
+        GMail.getTotalCountOfMails();
+//        TestUtils.getChromePrefs();
+//        driver.get("https://accounts.google.com/");
+//        gmailLogin.enterEmail("manish89aryatest001@gmail.com");
+//        gmailLogin.clickOnNext();
+//        gmailLogin.enterPassword("Test@1234");
+//        gmailLogin.clickEmail("<EMAIL SUBJECT YOU WANT TO CLICK>");//Replace with email subject you want to click
 
     }
 
